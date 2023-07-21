@@ -23,12 +23,12 @@ void handle_exit(char *input, char **cmd, char *argv[])
 		n = atoi(cmd[1]);
 
 		buffer = malloc(sizeof(char) *
-			(_strlen(argv[0]) + _strlen(err) + _strlen(cmd[1]) + 1));
+			(strlen(argv[0]) + strlen(err) + strlen(cmd[1]) + 1));
 
-		if (n < 0 || (n < 10 && _strlen(cmd[1]) > 1))
+		if (n < 0 || (n < 10 && strlen(cmd[1]) > 1))
 		{
-			_strcat(_strcat(_strcat(buffer, argv[0]), err), cmd[1]);
-			write(STDERR_FILENO, buffer, _strlen(buffer));
+			strcat(strcat(strcat(buffer, argv[0]), err), cmd[1]);
+			write(STDERR_FILENO, buffer, strlen(buffer));
 			write(STDERR_FILENO, "\n", 1);
 			free(buffer);
 			exit(2);

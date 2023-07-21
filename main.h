@@ -23,13 +23,6 @@ int cd_cmd(char **cmd);
 int run_commands(char *input, char **env, char **argv);
 void remove_comments(char *buf);
 
-/* string functions */
-char *_strcat(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
-char *_strcpy(char *dest, char *src);
-unsigned int _strcspn(char *s, char *reject);
-char *_strdup(char *str);
-int _strlen(char *s);
 int _unsetenv(char **cmd);
 int _setenv(char **cmd);
 char *strip_whitespace(char *input);

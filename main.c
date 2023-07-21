@@ -17,7 +17,7 @@ int main(int __attribute__ ((unused)) argc, char *argv[], char *env[])
 	{
 		not_pipe = isatty(STDIN_FILENO);
 		if (not_pipe == 1)
-			write(STDOUT_FILENO, prompt, _strlen(prompt));
+			write(STDOUT_FILENO, prompt, strlen(prompt));
 		nread = _getline(buffer);
 		if (nread < 0)
 			break;
