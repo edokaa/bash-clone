@@ -17,7 +17,7 @@ int _setenv(char **cmd)
 	}
 
 	env = setenv(cmd[1], cmd[2], 1);
-	if (env !=0)
+	if (env != 0)
 	{
 		perror(cmd[0]);
 		return (1);

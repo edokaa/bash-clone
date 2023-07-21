@@ -20,12 +20,10 @@ int cd_cmd(char **cmd)
 	current = getcwd(buffer, size),	oldpwd = getenv("OLDPWD");
 	if (cmd[1] == NULL)
 	{
-		home_dir = getenv("HOME");
-		chdir(home_dir);
+		home_dir = getenv("HOME"), chdir(home_dir);
 		setenv("OLDPWD", current, 1), setenv("PWD", home_dir, 1);
 		return (0);
 	}
-
 	if (strcmp(cmd[1], "-") == 0)
 	{
 		chdir(oldpwd);
@@ -49,6 +47,5 @@ int cd_cmd(char **cmd)
 	buf =  getcwd(buffer2, size);
 	setenv("PWD", buf, 1);
 	free(buffer), free(buffer2);
-	
 	return (0);
 }
