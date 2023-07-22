@@ -15,7 +15,6 @@ int run_commands(char *input, char **env, char **argv)
 
 	if (input[0] == '\0')
 	{
-		free(input);
 		return (0);
 	} parse_input(input, cmd);
 	if (strcmp(cmd[0], "env") == 0)
