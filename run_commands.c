@@ -19,22 +19,22 @@ int run_commands(char *input, char **env, char **argv)
 	} parse_input(input, cmd);
 	if (strcmp(cmd[0], "env") == 0)
 	{
-		free(input), print_env(env);
+		print_env(env);
 		return (0);
 	}
 	if (strcmp(cmd[0], "cd") == 0)
 	{
-		cd_cmd(cmd), free_input(cmd);
+		cd_cmd(cmd);
 		return (0);
 	}
 	if (strcmp(cmd[0], "setenv") == 0)
 	{
-		free(input), _setenv(cmd);
+		_setenv(cmd);
 		return (0);
 	}
 	if (strcmp(cmd[0], "unsetenv") == 0)
 	{
-		free(input), _unsetenv(cmd);
+		_unsetenv(cmd);
 		return (0);
 	}
 	if (strcmp(cmd[0], "exit") == 0)
