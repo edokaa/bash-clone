@@ -33,6 +33,5 @@ char *strip_whitespace(char *input)
 	strncpy(result, &input[i], j - i + 1);
 	result[j - i + 1] = '\0'; /* Null-terminate the result */
 
-	
 	return (result);
 }

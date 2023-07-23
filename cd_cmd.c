@@ -14,7 +14,6 @@ int cd_cmd(char **cmd)
 	buffer = malloc(sizeof(char) * size);
 	if (!buffer)
 	{
-		free(buffer);
 		return (-1);
 	}
 	current = getcwd(buffer, size),	oldpwd = getenv("OLDPWD");
@@ -41,7 +40,6 @@ int cd_cmd(char **cmd)
 	buffer2 = malloc(sizeof(char) * size);
 	if (!buffer2)
 	{
-		free(buffer2);
 		return (-1);
 	}
 	buf =  getcwd(buffer2, size);

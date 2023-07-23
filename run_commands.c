@@ -45,7 +45,7 @@ int run_commands(char *input, char **env, char **argv)
 		perror(argv[0]);
 		return (0);
 	}
-	free(cmd[0]);
+	free_input(cmd);
 	cmd[0] = path;
 	exec_status = _execve(path, cmd, env, argv, input);
 	return (exec_status);
