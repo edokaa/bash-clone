@@ -22,5 +22,6 @@ void parse_input(char *input, char **cmd)
 	}
 	cmd[i] = NULL;
 	free(input_copy);
+
 }
 

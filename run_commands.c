@@ -42,6 +42,7 @@ int run_commands(char *input, char **env, char **argv)
 	path = get_path(cmd[0], env);
 	if (path == NULL)
 	{
+		free_input(cmd);
 		perror(argv[0]);
 		return (0);
 	}
