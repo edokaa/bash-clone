@@ -21,6 +21,7 @@ void parse_input(char *input, char **cmd)
 		token = strtok(NULL, " \n");
 	}
 	cmd[i] = NULL;
+
 	free(input_copy);
 
 }

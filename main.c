@@ -26,10 +26,9 @@ int main(int __attribute__ ((unused)) argc, char *argv[], char *env[])
 		/*strcpy(input, buffer);*/
 		input = strip_whitespace(buffer);
 		run_commands(input, env, argv);
+		free(input);
 		input = NULL;
 	}
-	if (input != NULL)
-		free(input);
 	if (not_pipe == 1)
 		write(STDOUT_FILENO, "\n", 1);
 	return (0);

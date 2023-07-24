@@ -11,7 +11,7 @@
  */
 
 int _execve(char *path, char **cmd, char **env,
-		char **argv, char *input)
+		char **argv, char *input __attribute__((unused)))
 {
 	pid_t child;
 	int status;
@@ -27,6 +27,5 @@ int _execve(char *path, char **cmd, char **env,
 		exit(EXIT_FAILURE);
 	}
 	wait(&status);
-	free(input), free_input(cmd);
 	return (0);
 }

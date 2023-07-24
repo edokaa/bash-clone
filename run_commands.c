@@ -19,22 +19,22 @@ int run_commands(char *input, char **env, char **argv)
 	} parse_input(input, cmd);
 	if (strcmp(cmd[0], "env") == 0)
 	{
-		print_env(env);
+		print_env(env), free_input(cmd);
 		return (0);
 	}
 	if (strcmp(cmd[0], "cd") == 0)
 	{
-		cd_cmd(cmd);
+		cd_cmd(cmd), free_input(cmd);
 		return (0);
 	}
 	if (strcmp(cmd[0], "setenv") == 0)
 	{
-		_setenv(cmd);
+		_setenv(cmd), free_input(cmd);
 		return (0);
 	}
 	if (strcmp(cmd[0], "unsetenv") == 0)
 	{
-		_unsetenv(cmd);
+		_unsetenv(cmd), free_input(cmd);
 		return (0);
 	}
 	if (strcmp(cmd[0], "exit") == 0)
@@ -46,8 +46,8 @@ int run_commands(char *input, char **env, char **argv)
 		perror(argv[0]);
 		return (0);
 	}
-	free_input(cmd);
 	cmd[0] = path;
 	exec_status = _execve(path, cmd, env, argv, input);
+	free_input(cmd);
 	return (exec_status);
 }
