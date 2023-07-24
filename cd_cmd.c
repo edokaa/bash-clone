@@ -14,19 +14,31 @@ int cd_cmd(char **cmd)
 	buffer = malloc(sizeof(char) * size);
 	if (!buffer)
 	{
+		perror("malloc");
 		return (-1);
 	}
 	current = getcwd(buffer, size),	oldpwd = getenv("OLDPWD");
 	if (cmd[1] == NULL)
 	{
-		home_dir = getenv("HOME"), chdir(home_dir);
+		home_dir = getenv("HOME");
+	       	if (chdir(home_dir) != 0)
+		{
+			perror("cd"), free(buffer);
+			return (-1);
+		}
 		setenv("OLDPWD", current, 1), setenv("PWD", home_dir, 1);
+		free(buffer);
 		return (0);
 	}
 	if (strcmp(cmd[1], "-") == 0)
 	{
-		chdir(oldpwd);
+		if (chdir(oldpwd) != 0)
+		{
+			perror("cd"), free(buffer);
+			return (1);
+		}
 		setenv("OLDPWD", current, 1), setenv("PWD", oldpwd, 1);
+		free(buffer);
 		write(STDOUT_FILENO, oldpwd, strlen(oldpwd));
 		write(STDOUT_FILENO, "\n", 1);
 		return (0);
@@ -34,12 +46,15 @@ int cd_cmd(char **cmd)
 	if (chdir(cmd[1]) != 0)
 	{
 		perror("cd");
+		free(buffer);
 		return (1);
 	}
 	setenv("OLDPWD", current, 1);
 	buffer2 = malloc(sizeof(char) * size);
 	if (!buffer2)
 	{
+		free(buffer);
+		perror("malloc");
 		return (-1);
 	}
 	buf =  getcwd(buffer2, size);

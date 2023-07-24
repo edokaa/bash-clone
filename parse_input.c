@@ -10,6 +10,7 @@
 void parse_input(char *input, char **cmd)
 {
 	int i = 0;
+	int j;
 	char *token;
 	char *input_copy = strdup(input);
 
