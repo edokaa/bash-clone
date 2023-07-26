@@ -42,10 +42,10 @@ int run_commands(char *input, char **env, char **argv)
 	path = get_path(cmd[0], env);
 	if (path == NULL)
 	{
-		free_input(cmd);
-		perror(argv[0]);
+		free_input(cmd), perror(argv[0]);
 		return (0);
 	}
+	free(cmd[0]);
 	cmd[0] = path;
 	exec_status = _execve(path, cmd, env, argv, input);
 	free_input(cmd);

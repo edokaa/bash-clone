@@ -1,5 +1,4 @@
 #include "main.h"
-int error_no = 0;
 
 /**
  * main - shell
