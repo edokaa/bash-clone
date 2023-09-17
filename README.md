@@ -1,5 +1,5 @@
 # Bash Shell Clone in C
-Welcome to our custom Bash shell clone project! This project aims to create a simple Bash-like shell using C programming. It was developed in collaboration between [@edokaa](https://github.com/edokaa) and [@sandra113](https://github.com/sandra113).
+Welcome to our custom Bash shell clone project! This project aims to create a simple Bash-like shell using C programming. It was developed in collaboration between [Edoka](https://github.com/edokaa) and [Sandra](https://github.com/sandra113).
 
 ## Table of Contents
 
